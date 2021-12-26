@@ -1,29 +1,23 @@
 package com.ghassan.recycler;
 
 public class Friends {
-    private int id, imageId, dob;
+    private int dob;
     private String name, city;
 
-    public Friends(int id, int imageId, int dob, String name, String city) {
-        this.id = id;
-        this.imageId = imageId;
+    public Friends( String name, String city,  int dob) {
+
         this.dob = dob;
         this.name = name;
         this.city = city;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public int getImageId() {
-        return imageId;
-    }
 
     public int getDob() {
         return dob;
     }
 
+    
     public String getName() {
         return name;
     }
@@ -32,13 +26,7 @@ public class Friends {
         return city;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
-    }
 
     public void setDob(int dob) {
         this.dob = dob;
