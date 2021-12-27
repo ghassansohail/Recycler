@@ -17,25 +17,23 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     List<Friends> friendList;
     Activity mainActivty;
 
-    public RecycleAdapter(List<Friends> friendList, Activity mainActivity){
+    public RecycleAdapter(List<Friends> friendList){
         this.friendList=friendList;
-        this.mainActivty=mainActivity;
-
     }
 
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.friend, parent, false);
-//        return new MyViewHolder(itemView);
-        return null;
+
+        View itemView= LayoutInflater.from(parent.getContext()).inflate(R.layout.friends, parent, false);
+        return new MyViewHolder(itemView);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
     holder.data=friendList.get(position);
-    holder.imageViewFriend.setImageResource(holder.data.getImageId());
     holder.textViewCity.setText(String.valueOf(holder.data.getCity()));
     holder.textViewDateFriend.setText(String.valueOf(holder.data.getDob()));
     holder.textViewFriendName.setText(String.valueOf(holder.data.getName()));
@@ -49,13 +47,15 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageViewFriend;
+
         TextView textViewFriendName, textViewCity, textViewDateFriend;
         Friends data;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            //imageViewFriend =itemView.findViewById();
+            textViewFriendName=itemView.findViewById(R.id.name);
+            textViewCity=itemView.findViewById(R.id.city);
+            textViewDateFriend=itemView.findViewById(R.id.dob);
         }
     }
 }
